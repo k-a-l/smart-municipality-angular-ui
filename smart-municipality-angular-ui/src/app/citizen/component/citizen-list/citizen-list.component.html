@@ -1,0 +1,26 @@
+<div class="overflow-x-auto">
+  <table class="min-w-full border border-gray-300 divide-y divide-gray-200 shadow-sm rounded-lg">
+    <thead class="bg-gray-100">
+    <tr>
+      <th class="px-6 py-3 text-left text-sm font-medium text-gray-700">#</th>
+      <th class="px-6 py-3 text-left text-sm font-medium text-gray-700">First Name</th>
+      <th class="px-6 py-3 text-left text-sm font-medium text-gray-700">Last Name</th>
+      <th class="px-6 py-3 text-left text-sm font-medium text-gray-700">Phone No</th>
+      <th class="px-6 py-3 text-left text-sm font-medium text-gray-700">Verified</th>
+    </tr>
+    </thead>
+    <tbody class="bg-white divide-y divide-gray-200">
+    <tr *ngFor="let citizen of citizens; let i = index">
+      <td class="px-6 py-4 text-sm text-gray-900">{{ i + 1 }}</td>
+      <td class="px-6 py-4 text-sm text-gray-900">{{ citizen.firstName }}</td>
+      <td class="px-6 py-4 text-sm text-gray-900">{{ citizen.lastName }}</td>
+      <td class="px-6 py-4 text-sm text-gray-900">{{ citizen.phoneNo }}</td>
+      <td class="px-6 py-4 text-sm">
+          <span [ngClass]="citizen.isVerified ? 'text-green-600 font-medium' : 'text-red-600 font-medium'">
+            {{ citizen.isVerified ? 'Yes' : 'No' }}
+          </span>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
