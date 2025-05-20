@@ -1,5 +1,9 @@
-<div class="overflow-x-auto">
-  <table class="min-w-full border border-gray-300 divide-y divide-gray-200 shadow-sm rounded-lg">
+<div class="overflow-x-auto p-4">
+  <div *ngIf="citizens.length === 0" class="text-center text-gray-500 py-4">
+    No citizens found.
+  </div>
+
+  <table *ngIf="citizens.length > 0" class="min-w-full border border-gray-300 divide-y divide-gray-200 shadow-sm rounded-lg">
     <thead class="bg-gray-100">
     <tr>
       <th class="px-6 py-3 text-left text-sm font-medium text-gray-700">#</th>

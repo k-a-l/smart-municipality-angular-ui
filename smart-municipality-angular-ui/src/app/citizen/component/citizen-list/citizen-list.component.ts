@@ -1,18 +1,26 @@
-import { Component } from '@angular/core';
-import {Citizen} from '../../model/citizen';
-import {NgClass, NgForOf} from '@angular/common';
+import { Component, OnInit } from '@angular/core';
+import { Citizen } from '../../model/citizen';
+import {NgClass, NgForOf, NgIf} from '@angular/common';
+import { CitizenServiceService } from '../../../service/citizen-service.service';
 
 @Component({
   selector: 'app-citizen-list',
-  imports: [
-    NgClass,
-    NgForOf
-  ],
+  standalone: true,
+  imports: [NgClass, NgForOf,
+  NgIf],
   templateUrl: './citizen-list.component.html',
-  styleUrl: './citizen-list.component.css'
+  styleUrls: ['./citizen-list.component.css']
 })
-export class CitizenListComponent {
+export class CitizenListComponent implements OnInit {
 
   citizens: Citizen[] = [];
 
+  constructor(private citizenService: CitizenServiceService) {}
+
+  ngOnInit() {
+    this.citizenService.getCitizenList().subscribe({
+      next: (data) => this.citizens = data,
+      error: (err) => console.error('Failed to fetch citizens:', err)
+    });
+  }
 }

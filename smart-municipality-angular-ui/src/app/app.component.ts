@@ -4,7 +4,7 @@ import {CitizenListComponent} from './citizen/component/citizen-list/citizen-lis
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, CitizenListComponent],
+  imports: [ RouterOutlet, CitizenListComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
